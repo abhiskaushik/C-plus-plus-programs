@@ -33,7 +33,23 @@ public:
    	top=top->next;
    	return temp->val;
    }
+   
+   string reverse(string s){
+   	Stack stack;
+   	for (int i = 0; i <s.length(); ++i)
+	{
+		stack.push(s[i]);
+	}
+	for (int i = 0; i <s.length(); ++i)
+	{
+		/* code */
+		s[i]=stack.pop();
+	}
+	//cout<<s<<endl;
+	return s;
 
+   }
+ 
 
 };
 
@@ -43,15 +59,18 @@ int main(){
     Stack stack;
 	string s;
 	cin>>s;
-	for (int i = 0; i <s.length(); ++i)
+	string t=stack.reverse(s);
+	/*for (int i = 0; i <s.length(); ++i)
 	{
 		stack.push(s[i]);
 	}
 
+     reverse(s);
 	for (int i = 0; i <s.length(); ++i)
 	{
-		/* code */
-		s[i]=stack.pop();
+			s[i]=stack.pop();
 	}
-  cout<<s<<endl;
+	*/
+	 
+  cout<<t<<endl;
 }
