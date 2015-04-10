@@ -58,6 +58,60 @@ public:
  	cin>>n;
  	cout<<parity_type(n)<<endl;
  }
+  int mul_with_7(int n){
+     return((n<<3)-n); //8*n-n=7*n
+  }
+
+ void mul_with_7_entries(){
+ 	int n;
+ 	cin>>n;
+ 	cout<<mul_with_7(n)<<endl;
+ }
+  
+  int power_of_2(int n){
+   if(n==0)
+   	return 0;
+   else if(!(n&(n-1)))
+   	 return 1;
+   	else
+   		return 0;
+  }
+
+
+ void power_of_2_entries(){
+      int n;
+      cin>>n;
+      cout<<power_of_2(n)<<endl;
+
+ }
+ int pos_of_rightmost_set_bit(int n){
+ 	int ct=0;
+ 	while(n){
+ 		if(n&1)
+ 			return ct;
+      
+      ct++;
+      n=n>>1;
+ 	}
+ }
+
+ void pos_of_rightmost_set_bit_entries(){
+ 	int n;
+ 	cin>>n;
+ 	cout<<pos_of_rightmost_set_bit(n)<<endl;
+ }
+
+ void unique_occurrence_entries(){
+ 	int n,x,ans=0;
+ 	cin>>n;
+ 	for (int i = 0; i < n; ++i)
+ 	{
+ 		 cin>>x;
+ 		 ans=ans^x;
+ 	}
+ 	cout<<ans<<endl;
+
+ }
 
 };
 int main(){
@@ -65,8 +119,10 @@ int main(){
 	Bits b;
 	//b.sub_without_entries();
     //b.next_power_of_2_entries();
-    b.parity_type_entries();
-
-
+    //b.parity_type_entries();
+    //b.mul_with_7_entries();
+    //b.power_of_2_entries();
+    //b.pos_of_rightmost_set_bit_entries();
+      b.unique_occurrence_entries();
 return 0;
 }
