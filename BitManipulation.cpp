@@ -42,13 +42,31 @@ public:
  	cout<<next_power_of_2(n)<<endl;
  }
 
+//O(logn)
+ int parity_type(int n){
+   int ct=0;
+   while(n){
+   	 n=n&(n-1);
+   	 ct++;
+     //ct+=n&1;
+     //n=n>>1;
+   }
+  return ct;
+ }
+ void parity_type_entries(){
+ 	int n;
+ 	cin>>n;
+ 	cout<<parity_type(n)<<endl;
+ }
 
 };
 int main(){
 
 	Bits b;
 	//b.sub_without_entries();
-      b.next_power_of_2_entries();
+    //b.next_power_of_2_entries();
+    b.parity_type_entries();
+
 
 return 0;
 }
