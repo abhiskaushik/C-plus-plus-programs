@@ -112,6 +112,34 @@ public:
  	cout<<ans<<endl;
 
  }
+ void reverse_bits_entries(){
+ 	int n;
+ 	cin>>n;
+ 	//int rbit=sizeof(n)*8; //set rth bit..
+ 	int lbit=0,rbit=0;
+ 	 int temp1=n;
+ 	 int temp2=n;
+ 	 //go to rightmost bit
+ 	 while(n){
+ 	 	n=n>>1;
+ 	 	rbit++;
+ 	 }
+ 	 int ar[rbit];
+ 	 int k=0;
+ 	 while(temp1){
+ 	 	ar[k]=temp1&1;
+ 	 	k++;
+ 	 	temp1=temp1>>1;
+ 	 }
+
+ 	 //cout<<rbit<<endl;
+  for (int i = 0; i <rbit; ++i)
+  {
+  	cout<<ar[i];
+  }
+  cout<<endl;
+ 		
+ }
 
 };
 int main(){
@@ -123,6 +151,9 @@ int main(){
     //b.mul_with_7_entries();
     //b.power_of_2_entries();
     //b.pos_of_rightmost_set_bit_entries();
-      b.unique_occurrence_entries();
+    //b.unique_occurrence_entries();
+    b.reverse_bits_entries();
+
+
 return 0;
 }
