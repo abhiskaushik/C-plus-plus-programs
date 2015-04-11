@@ -140,6 +140,37 @@ public:
   cout<<endl;
  		
  }
+ //number of flips needed to change A to B
+ void flips_entries(){
+   int a,b,ct=0;
+   cin>>a>>b;
+    int xOr=a^b;
+    while(xOr){
+    	xOr=xOr&(xOr-1);
+    	ct++;
+    }
+
+   cout<<ct<<endl;
+ }
+ //rotate_bits
+ void rotate_bits_entries(){
+ 	int n,k,ct=0;
+ 	cin>>n>>k;
+ 	while(n){
+ 		n=n<<1;
+ 		ct++;
+ 	}
+ 	cout<<((n<<k)|(n>>(32-k)))<<endl;
+
+
+ }
+ void modulo_bits(){
+ 	int n,k; //k=power of 2
+ 	cin>>n>>k;
+ 	cout<<(n&(k-1))<<endl;  //binary of (k-1) will set the bits of k from 0th to (set-1)th bit of k
+ 
+ }
+
 
 };
 int main(){
@@ -152,8 +183,9 @@ int main(){
     //b.power_of_2_entries();
     //b.pos_of_rightmost_set_bit_entries();
     //b.unique_occurrence_entries();
-    b.reverse_bits_entries();
-
-
+    //b.reverse_bits_entries();
+    //b.flips_entries();
+    //b.rotate_bits_entries();
+    b.modulo_bits();
 return 0;
 }
