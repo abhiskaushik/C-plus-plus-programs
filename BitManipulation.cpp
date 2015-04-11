@@ -171,6 +171,22 @@ public:
  
  }
 
+ void absolute_value_of_a_number(){
+ 	//toggle the bits
+ 	int n,m=0,i=0;
+ 	cin>>n;
+// 	stack <int>s;  
+ 	while(n<0){
+ 		//cout<<(n&1)<<endl;
+ 		m+=(~(n&1))*pow(2,i);
+ 		//s.push(~(n&1));
+ 		n=n>>1; i++;
+ 	} 
+    cout<<(m+1)<<endl;
+
+
+ }
+
 
 };
 int main(){
@@ -186,6 +202,7 @@ int main(){
     //b.reverse_bits_entries();
     //b.flips_entries();
     //b.rotate_bits_entries();
-    b.modulo_bits();
+    //b.modulo_bits();
+    b.absolute_value_of_a_number();
 return 0;
 }
