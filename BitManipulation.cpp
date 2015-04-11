@@ -187,8 +187,35 @@ public:
 
  }
 
+ void power_of_4(){
+ 	int n,flag=0;
+ 	cin>>n;
+ 	
+  if (n && !(n&(n-1))){
+ 
+  while(n>1){
+ 		
+ 		n=n>>1;
+    flag++;
+ 	
+   }
+
+
+ 	if(flag%2==0)
+ 		cout<<"yes"<<endl;
+ 	else
+ 		cout<<"No"<<endl;
+
+ }
+
+ else
+  cout<<"No"<<endl;
+
+}
 
 };
+
+
 int main(){
 
 	Bits b;
@@ -203,6 +230,9 @@ int main(){
     //b.flips_entries();
     //b.rotate_bits_entries();
     //b.modulo_bits();
-    b.absolute_value_of_a_number();
+    //b.absolute_value_of_a_number();
+      b.power_of_4();
+
+
 return 0;
 }
