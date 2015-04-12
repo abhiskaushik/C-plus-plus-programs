@@ -219,10 +219,20 @@ public:
    cin>>n;
    cout<<(n&(n-1))<<endl;
 
+}
 
+void mul_with_3point5(){
+  int n,ans;
+  cin>>n;
+  ans=((n<<3)-n)>>1;
+  cout<<ans<<endl;
+}
 
-
- }
+void add1ton(){
+  int n;
+  cin>>n;
+  cout<<(-(~n)) <<endl; // ~x=-(x+1) => -(~x)=x+1 
+}
 
 };
 
@@ -243,7 +253,9 @@ int main(){
     //b.modulo_bits();
     //b.absolute_value_of_a_number();
     //b.power_of_4();
-    b.turn_of_rightmost_bit();
+    //b.turn_of_rightmost_bit();
+    //b.mul_with_3point5();
+    b.add1ton();
 
 return 0;
 }
