@@ -213,6 +213,17 @@ public:
 
 }
 
+ void turn_of_rightmost_bit(){
+  // (n-1) will flip the bits of n after the rightmost set bit including that bit
+   int n;
+   cin>>n;
+   cout<<(n&(n-1))<<endl;
+
+
+
+
+ }
+
 };
 
 
@@ -231,8 +242,8 @@ int main(){
     //b.rotate_bits_entries();
     //b.modulo_bits();
     //b.absolute_value_of_a_number();
-      b.power_of_4();
-
+    //b.power_of_4();
+    b.turn_of_rightmost_bit();
 
 return 0;
 }
