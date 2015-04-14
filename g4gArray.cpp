@@ -112,7 +112,22 @@ public:
 
 }
 
+ void largest_product_contiguous_subarray(){
+ 	 int ar[]={-1,-3,-4,-10,-5,-14};
+ 	  int cur_max=ar[0],max_so_far=ar[0];
+    
+     //if all the nos are -ve and number of numbers are odd then remove the largest number
 
+ 	  for (int i = 1; i <6; ++i)
+ 	  {
+ 	  	 cur_max=max(ar[i],ar[i]*cur_max);
+ 	  	 max_so_far=max(cur_max,max_so_far);
+ 
+ 	  }
+
+      cout<<max_so_far<<endl;
+
+}
 
 
 
@@ -127,8 +142,8 @@ int main(){
     //g4ga.pair_with_sum_k_method1();
     //g4ga.majority_element();
      // g4ga.max_repeating_element();
-      g4ga.largest_sum_contiguous_subarray();
-
+     // g4ga.largest_sum_contiguous_subarray();
+     g4ga.largest_product_contiguous_subarray();
 
 
 
