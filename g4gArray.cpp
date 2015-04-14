@@ -129,6 +129,20 @@ public:
 
 }
 
+ void missing_no(){
+ 	int ar[]={1,2,3,4,6,7,8},xor1=1,xor2=1;
+
+ 	 for (int i = 0; i <7; ++i)
+ 	 {
+ 	    xor1=xor1^ar[i];
+ 	 }
+ 	 for (int i = 1; i <=8; ++i)
+ 	 {
+ 	 	xor2=xor2^i;
+ 	 }
+
+ 	 cout<<(xor2^xor1)<<endl;
+ }
 
 
 
@@ -143,8 +157,8 @@ int main(){
     //g4ga.majority_element();
      // g4ga.max_repeating_element();
      // g4ga.largest_sum_contiguous_subarray();
-     g4ga.largest_product_contiguous_subarray();
-
+     //g4ga.largest_product_contiguous_subarray();
+       g4ga.missing_no();
 
 
 
