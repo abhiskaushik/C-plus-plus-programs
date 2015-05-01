@@ -148,9 +148,9 @@ class Arrays{
 }
 
   void extra_spaces(){
-  	string str;
-  	 cin>>str;
-  	  int l=str.length();
+  	 char str[1000]="hey dude  sup ";
+  	 //cin>>str;
+  	  //int l=str.length();
   	  
   	 int i,x;
     for(i=x=1; str[i]; ++i){
@@ -163,8 +163,107 @@ class Arrays{
     cout<<str<<endl;
 
 }
+ 
+ void search_pivot(){
+ 	//search pivot in a rotated array..using binary search
+ 	int ar[]={6,7,8,4,5};
+ 	int l=0,r= (sizeof(ar))/(sizeof(ar[0])) - 1;
+ 	  while(l<r){
+ 	  	 int mid=l+(r-l)/2;
+ 	  	   
+ 	  	   if((ar[mid]<ar[mid+1] && ar[mid]<ar[mid-1])|| mid==r&ar[mid-1]>ar[mid] ||
+ 	  	   	mid==l&ar[mid+1]>ar[mid]){
+ 	  	   	 cout<<"pivot:"<<ar[mid]<<endl; break;
+ 	  	   }
+ 	  	   if(ar[mid]>ar[mid-1])
+ 	  	   	    l=mid;
+ 	  	   	else
+ 	  	   		r=mid+1;
 
+
+
+
+ 	  }
+}
+
+  void permu(string str,int k,int n){
+  	 if(k==n)
+  	 	cout<<str<<endl;
+      
+      else{
+      	 for (int i = k; i <n ; ++i)
+      	 {
+      	 	 char temp1=str[k];
+      	 	       str[k]=str[i];
+      	 	       str[i]=temp1;
+      	 	       permu(str,k+1,n);
+      	 	 char temp2=str[k];
+      	 	       str[k]=str[i];
+      	 	       str[i]=temp2;      
+
+      	 }
+      }
+
+  }
+
+  void string_perm_entries(){
+  	   string str;
+  	   cin>>str;
+  	   int l=str.length();
+  	   permu(str,0,l);
+
+ }
+
+   void combi(string str,int k,int n){
+   	  
+   	  if(k==n){
+   	  	str[k]=0;
+   	  	cout<<str<<endl;
+   	  	str[k]=1;
+   	  	cout<<str<<endl;
+   	    }
+   	   str[k]=0;
+   	   combi(str,k+1,n);
+   	   str[k]=1;
+   	   combi(str,k+1,n);
+   }
+
+
+   void string_comb_entries(){
+   	 string str;
+   	 cin>>str;
+   	 int l=str.length();
+   	 combi(str,0,l-1);
+   }
   
+  void sorted_sub_sequence(){
+  	int ar[]={14,10,6,2,1,0};
+  	int l=sizeof(ar)/sizeof(ar[0]);
+   
+  	int hash[1000]={0};
+  	int max=ar[0];
+  	 for (int i = 0; i <l; ++i)
+  	 {
+  	 	  if(ar[i]>=max){
+  	 	  	 max=ar[i];
+  	 	  	 hash[ar[i]]=ar[i];
+  	 	    //success_ptr=ar[i];
+  	 	    //ctr++;
+  	 	  }
+  	 	  else{
+  	 	  	 //success_ptr=ar[i];
+  	 	  	 max=ar[i];
+
+
+  	 	 	}
+  	 }
+  	 for (int i = 0; i <1000; ++i)
+  	 {
+  	 	 if(hash[i]>0)
+  	 	 	cout<<hash[i]<<" ";
+  	 }
+
+  }
 
 
 };
@@ -177,7 +276,10 @@ int main(){
    //  cout<<ar.do_square(10);
 	//ar.three_sum_k();
     //ar.power_of_5();
-   ar.extra_spaces();
-
+   //ar.extra_spaces();
+      //ar.search_pivot();
+   //ar.string_perm_entries();
+	//ar.string_comb_entries();
+    ar.sorted_sub_sequence();
 	return 0;
 }
