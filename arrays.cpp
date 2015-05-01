@@ -237,7 +237,7 @@ class Arrays{
    }
   
   void sorted_sub_sequence(){
-  	int ar[]={14,10,6,2,1,0};
+  	int ar[]={4,10,16,22,11,0};
   	int l=sizeof(ar)/sizeof(ar[0]);
    
   	int hash[1000]={0};
@@ -257,12 +257,31 @@ class Arrays{
 
   	 	 	}
   	 }
+  	 int ctr=1;
   	 for (int i = 0; i <1000; ++i)
   	 {
-  	 	 if(hash[i]>0)
+  	 	 if(ctr>3)
+  	 	 	break;
+
+  	 	 if(hash[i]>0){
   	 	 	cout<<hash[i]<<" ";
+  	 	    ctr++;
+  	 	 }
   	 }
 
+  }
+
+  void repeats(){
+  	int ar[]={3,5,1,-4,9,3,1,-4};
+  	  for (int i = 0; i <8; ++i)
+  	  {
+  	  	  int x=ar[abs(ar[i])];
+  	  	  if(x>=0){
+  	  	  	x*=-1; ar[i]=x;
+  	  	  }
+  	  	  else
+  	  	  	cout<<ar[i]<<" ";
+  	  }
   }
 
 
@@ -280,6 +299,7 @@ int main(){
       //ar.search_pivot();
    //ar.string_perm_entries();
 	//ar.string_comb_entries();
-    ar.sorted_sub_sequence();
+    //ar.sorted_sub_sequence();
+	ar.repeats();
 	return 0;
 }
