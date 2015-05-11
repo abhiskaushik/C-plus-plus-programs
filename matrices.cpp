@@ -46,6 +46,37 @@ public:
 
    }
 
+   void findSubMat(ll m[][5]){
+   	  ll s[6][5];
+   	  for (int i = 0,j=0; i <6,j<5; ++i,j++)
+   	  {
+   	  	 s[i][0]=m[i][0];
+   	  	 s[0][j]=m[0][j];
+   	  }
+   	    for (int 1 = 1; i <6; ++i)
+   	    {
+   	        for (int j = 1; i <5; ++j)
+   	        {   
+   	        	if(m[i][j]==1)
+    	        s[i][j]=min(s[i][j-1],s[i-1][j],s[i-1][j-1])+1;
+    	        else
+    	        	s[i][j]=0;
+   	        } 	 
+   	    }
+
+
+   }
+    void findSubMatEntries(){
+    	ll m[][]={{0,1,1,0,1},
+                  {1,1,0,1,0},
+                  {0,1,1,1,0},
+                  {1,1,1,1,0},
+                  {1,1,1,1,1},
+                  {0,0,0,0,0}
+                 };
+
+           findSubMat(m);      
+
 };
 
 int main(){
