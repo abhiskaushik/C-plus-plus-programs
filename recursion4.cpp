@@ -8,13 +8,24 @@ int logn(int n){
 	return 1+ logn(n/2);
 }
 
+void binary(int n){
+	if(n==0)
+		return;
+
+	binary(n/2);
+
+	cout<<(n%2);
+
+}
 
   int main(){
   	int n;
 
      while(cin>>n){
         
-     	cout<<logn(n)<<endl;
+     	//cout<<logn(n)<<endl;
+     binary(n);
+     cout<<endl;
      }
 
   	return 0;
