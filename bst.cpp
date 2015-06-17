@@ -42,9 +42,17 @@
 
   }
 
+ int minVal(struct node *root){
+  	if(root->lc==NULL)
+  		return root->val;
+
+  	return minVal(root->lc);
+
+
+}
   int main(int argc, char const *argv[])
   {
-  	 int ar[]={3,6,2,5,10,7};
+  	 int ar[]={3,6,12,5,10,7};
   	  int size=sizeof(ar)/sizeof(ar[0]);
       struct node *root=NULL;
       for (int i = 0; i <size; ++i)
@@ -53,5 +61,7 @@
       	 root=insertBST(root,ar[i]);
       }
      print(root);
+    cout<<"Minimum Val"<<endl;
+     cout<<minVal(root)<<endl;
   	return 0;
   }
