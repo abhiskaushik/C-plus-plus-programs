@@ -14,6 +14,7 @@
    	 	/* code */ temp[i]=1;
    	 }
 
+       vector<int> v; v.push_back(ar[0]);
 
      for (int i =1; i <size; ++i)
      {
@@ -21,13 +22,15 @@
      	for (int j = 0; j<i; ++j)
      	{
      		/* code */
-     		if(ar[j]<ar[i] && temp[i]<1+temp[j])
-     			temp[i]=1+temp[j];
+     		if(ar[j]<ar[i] && temp[i]<1+temp[j]){
+     			temp[i]=1+temp[j]; //cout<<ar[j]<<ar[i];
+     		}
 
      		 
 
 
      	}
+     	v.push_back(ar[i]);
      }
        int max=0;
      for (int i = 0; i <size; ++i)
@@ -35,7 +38,9 @@
      	/* code */ 
      	if(temp[i]>max)
      		max=temp[i];
-     	cout<<temp[i]<<" ";
+
+     	//cout<<temp[i]<<" ";
+     	cout<<v[i]<<" ";
      }
      cout<<"lis:"<<max<<endl;
 
