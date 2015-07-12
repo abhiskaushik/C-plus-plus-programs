@@ -16,11 +16,11 @@
         	for (int j = 0; j<i; ++j)
         	{
         		/* code */
-        		cat[i]+=cat[j]*cat[i-j-1]
+        		cat[i]+=cat[j]*cat[i-j-1];
         	}
 
         }
-        return cat[n];
+        cout<<cat[n];
   	 }
 
   	return 0;
