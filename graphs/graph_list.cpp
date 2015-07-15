@@ -1,14 +1,21 @@
   #include<bits/stdc++.h>
    using namespace std;
 
+  struct edge{
+      int vertex;
+      int weight;
+  };
 
    int main(int argc, char const *argv[])
    {    
+
+   	     struct edge E;
    	   int n;
    	   cin>>n;
    	   vector< list<int> > adjList(n);
-
-   	   adjList[0].push_back(0);
+        
+         
+   	   adjList[0].push_back();
    	   adjList[0].push_back(1);
 
    	   adjList[1].push_back(2);
