@@ -38,6 +38,15 @@
 
   }
 
+  int lengthIs(struct node *head){
+
+  	if(head==NULL)
+  		return 0;
+
+  	 return 1+ lengthIs(head->next);
+
+  }
+
   int main(int argc, char const *argv[])
   {
   	 int ar[]={3,4,2,4,5,-1,0,2};
@@ -50,6 +59,6 @@
   	 }
 
   	 cout<<endl<<print(head);
-  	
+  	  cout<<"lengthIs:"<<lengthIs(head);
   	return 0;
   }
