@@ -259,6 +259,103 @@ void checkPalin2(struct node **left,struct node *right){
  }
 
 
+void remove_duplicate(struct node *head){
+
+struct node *current=head,*next_next;
+	if(current==NULL)
+		return;
+	
+	while(current->next!=NULL){
+		if(current->val==current->next->val){
+			next_next=current->next->next;
+			free(current->next);
+			current->next=next_next;
+		}
+		else{
+			current=current->next;	
+		}
+	}
+
+}
+
+
+void remove_duplicate_unsorted(struct node *head){
+
+	int hash[100000]={0};
+
+	struct node *next_next;
+
+	while(head->next!=NULL){
+		if(hash[head->next->val]==1){
+			next_next=head->next->next;
+			
+			free(head->next);
+			head->next=next_next;
+
+		}
+		else{
+			hash[head->val]=1;
+		}
+		head=head->next;
+	}
+
+	for (int i = 0; i <20; ++i)
+	{
+		/* code */
+		cout<<hash[i]<<" ";
+	}
+
+}
+
+      void swap(struct node *x, struct node *y){
+        int temp=x->val;
+        x->val=y->val;
+        y->val=temp;
+      }
+
+void swap_pairwise(struct node *head){
+	 if(head!=NULL && head->next!=NULL){
+	 	swap(head,head->next);
+
+	 	swap_pairwise(head->next->next);
+	 }
+
+}
+
+void last_node_as_first(struct node **head){
+	 if(*head==NULL || (*head)->next==NULL)
+	 	return;	
+
+	 struct node *last=*head;
+	 struct node *secondlast=NULL;
+
+	 while(last->next!=NULL){
+	 	secondlast=last;
+	 	last=last->next;
+	 }
+	 secondlast->next=NULL;
+	 last->next=*head;
+	 *head=last;
+}
+
+
+struct node *intersectionLL(struct node *headone,*headtwo){
+
+	 if(headone==NULL || headtwo==NULL)
+	 	return;
+
+	 if(headtwo->val >headtwo->val)
+	 	return intersectionLL(headone,headtwo->next);
+	 if(headone->val<headtwo->val)
+	 	return intersectionLL(headone->next,headtwo);
+
+	 struct node temp=(struct node *)malloc(sizeof(struct node));
+	   temp->val=headone->val;
+
+	   temp->next=intersectionLL(headone->next,headtwo->next);
+
+	    return temp;
+}
 
 
 
@@ -266,14 +363,24 @@ void checkPalin2(struct node **left,struct node *right){
 
   int main(int argc, char const *argv[])
   {
-  	 int ar[]={3,4,2,4,3,11}; 
+  	 int ar[]={3,5,6,2,1,4};  int ar2[]={5,1,9,0,6,1};
   	 int size=sizeof(ar)/sizeof(ar[0]);
-      struct node *head=NULL;
+  	 int size2=sizeof(ar2)/sizeof(ar2[0]);
+
+      struct node *head=NULL,*headtwo=NULL;
   	 for (int i = 0; i <size ; ++i)
   	 {
   	 	/* code */
   	 	insertEnd(&head,ar[i]);
   	 }
+
+  	 for (int i = 0; i < size2; ++i)
+  	 {
+  	 	/* code */
+  	 	insertEnd(&headtwo,ar2[i]);
+  	 }
+
+
 
   	//cout<<endl<<print(head)<<endl;
   	  //cout<<"lengthIs:"<<lengthIs(head);
@@ -291,7 +398,15 @@ void checkPalin2(struct node **left,struct node *right){
       // print(head);
 
   	 //cout<<intersection(head,head2)<<endl;
-      printRecursive(head);
+     // printRecursive(head);
+
+     //remove_duplicate(head);
+    // remove_duplicate_unsorted(head);
+     //swap_pairwise(head);
+     //last_node_as_first(&head);
+     struct node *temphead;
+     temphead=intersectionLL(head,headtwo);
+     print(temphead);
 
   	return 0;
   }
