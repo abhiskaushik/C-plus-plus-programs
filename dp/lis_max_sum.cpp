@@ -21,12 +21,13 @@ int lis_maxSum(int ar[],int n){
 		cout<<temp[i]<<" ";
 	}
 	cout<<endl;
-      int max=temp[0];
+      int max=temp[0]; int maxI;
 	for (int i = 0; i <n; ++i)
 	{
 		/* code */
-		if(temp[i]>max)
-			max=temp[i];
+		if(temp[i]>max){
+			max=temp[i]; maxI=i;
+		}
 
 		cout<<temp[i]<<" ";
 	}

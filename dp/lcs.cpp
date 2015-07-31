@@ -20,10 +20,10 @@
     	lookup[i][0]=0;
     }
 
-    for (int i =1; i <l1+1; ++i)
+    for (int i =1; i <=l2; ++i)
     {
     	/* code */
-    	for (int j =1; j <l2+1; ++j)
+    	for (int j =1; j <=l1; ++j)
     	{
     		/* code */
     		
@@ -37,7 +37,7 @@
     	}
     	cout<<endl;
     }
-  cout<<lookup[l1][l2]<<endl;
+  cout<<lookup[l2][l1]<<endl;
 
 
   	return 0;
